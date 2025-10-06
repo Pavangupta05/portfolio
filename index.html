@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pavan Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Portfolio</div>
+    <nav>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="primary-nav">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact" class="btn btn-hire">Hire Me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="section">
+    <div class="home-content">
+      <div class="typing-hero">
+        <h1 class="typing-title">
+          <span id="typingText"></span><span class="caret" aria-hidden="true"></span>
+        </h1>
+      </div>
+      <p class="home-subtitle">I craft responsive, accessible websites with clean UI and smooth interactions.</p>
+      <div class="home-cta">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="about-container">
+      <div class="about-img">
+        <img src="./pavan.jpg" alt="Pavan's Profile Photo">
+      </div>
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>
+          I'm a passionate Frontend Developer focused on creating beautiful and functional digital experiences.
+          I love crafting modern UIs using HTML, CSS, and JavaScript — and currently learning React to take things
+          further.
+        </p>
+        <p>
+          Outside of coding, I enjoy design, tech, and exploring creative tools to express innovation on the web.
+        </p>
+        <div class="about-actions">
+          <a class="btn-resume" href="./resume.pdf" download>
+            <i class="fa-solid fa-download"></i> Download Resume
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- skills section -->
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2 class="section-title">My Skills</h2>
+    <div class="skills-container">
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+        <h3>HTML 5</h3>
+        <p>HTML5 is the foundation of web pages. I use semantic tags and accessibility practices to structure websites
+          effectively.</p>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+        <h3>CSS 3</h3>
+        <p>With CSS3, I create responsive, clean, and modern UI designs using Flexbox, Grid, and custom animations.</p>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+          alt="JavaScript">
+        <h3>JavaScript</h3>
+        <p>JavaScript helps me bring interactivity to websites—building dynamic UIs, DOM manipulation, and functional
+          behavior.</p>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap">
+        <h3>Bootstrap</h3>
+        <p>I use Bootstrap to build responsive websites quickly, leveraging its grid system and pre-built UI components.
+        </p>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+        <h3>React</h3>
+        <p>With React, I build fast, modular, and scalable frontend applications using reusable components and hooks.
+        </p>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+        <h3>Node.js</h3>
+        <p>Node.js lets me build backend APIs and full-stack applications using JavaScript, handling data and server
+          logic.</p>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express.js"
+          width="50" height="50" />
+
+        <h3>Express.js</h3>
+        <p>Express.js is a lightweight web framework for Node.js. I use it to create fast, efficient, and structured
+          backend APIs for web applications.</p>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB"
+          width="50" height="50" />
+        <h3>MongoDB</h3>
+        <p>MongoDB is a NoSQL database that stores data in flexible JSON-like documents. I use it to build scalable,
+          fast, and modern backend systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="section">
+    <h2 class="section-title">Experience</h2>
+    <div class="experience-container">
+      <div class="experience-card scroll-reveal">
+        <h3>Frontend Intern</h3>
+        <p class="meta"><span>Upflairs Pvt. Ltd.</span> · <span>July 2025 – Aug 2025</span></p>
+        <p>Built and delivered full-stack web solutions using React for the frontend and Node.js with MongoDB for the backend, ensuring scalability and performance.</p>
+      </div>
+      <div class="experience-card scroll-reveal">
+        <h3>Freelance Web Developer</h3>
+        <p class="meta"><span>Self-employed</span> · <span>2024 – Present</span></p>
+        <p>Delivered responsive landing pages and portfolios for clients using HTML, CSS, JavaScript, and React, following modern best practices.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificates Section -->
+  <section id="certificates" class="section">
+    <h2 class="section-title">Certificates</h2>
+    <div class="certificates-container">
+      <div class="certificate-card scroll-reveal">
+        <div class="icon">🎓</div>
+        <div class="content">
+          <h3>Full Stack web Developer </h3>
+          <p class="meta"><span>Upflairs Pvt. Ltd.</span> · <span>2025</span></p>
+        </div>
+      </div>
+      <div class="certificate-card scroll-reveal">
+        <div class="icon">📜</div>
+        <div class="content">
+          <h3>Python Programming </h3>
+          <p class="meta"><span>Kaizen innovations</span> · <span>2024</span></p>
+        </div>
+      </div>
+      <div class="certificate-card scroll-reveal">
+        <div class="icon">🏆</div>
+        <div class="content">
+          <h3>Hackathon</h3>
+          <p class="meta"><span>Smart India Hackathon</span> · <span>2025</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="projects" class="projects">
+    <h2 class="section-title">Projects</h2>
+
+    <div class="project-grid">
+      <!-- Project 1 -->
+      <div class="project-card scroll-reveal">
+  <img src="./Screenshot 2025-10-05 204623.png" alt="Civic Issue Reporting System Screenshot">
+  <div class="project-info">
+    <h3> Civic Issue Reporting System </h3>
+    <p>• Developed a full-stack web application enabling citizens to report, track, and resolve civic issues in real-time. </p>
+    <p>• Integrated AI-based issue analysis, live location tracking, and multi-role admin dashboards for efficient management and transparency. </p>
+    <div class="badge-list">
+      <span class="badge">React</span>
+      <span class="badge">Tailwind CSS</span>
+      <span class="badge">Node.js</span>
+      <span class="badge">Express.js</span>
+      <span class="badge">Python</span>
+    </div>
+    <div class="project-actions">
+      <a class="btn btn-primary" href="https://smart-civic-h4zrzgjmh-pavan-kumar-gupta-s-projects.vercel.app/" target="_blank">
+        <span class="icon">🔗</span> Live Demo
+      </a>
+      <a class="icon-btn github" href="https://github.com/Pavangupta05/Smart-Civic-Eye" target="_blank" aria-label="GitHub Repository">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path fill="currentColor"
+            d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.35-1.76-1.35-1.76-1.1-.75.08-.74.08-.74 1.21.09 1.84 1.24 1.84 1.24 1.08 1.84 2.83 1.31 3.52 1 .11-.79.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .5z" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+      <!-- Project 2 -->
+      <div class="project-card scroll-reveal">
+        <img src="./1531136_4092.jpg" alt="Project 2">
+        <div class="project-info">
+          <h3>Weather App</h3>
+          <p>• Built a real-time weather dashboard using Open Weather API to display temperature, humidity, and
+            forecasts for any city worldwide.</p>
+          <p>• Implemented error handling and location-based search, improving usability and ensuring 100% accurate
+            query results. </p>
+          <div class="badge-list">
+            <span class="badge">HTML</span>
+            <span class="badge">CSS</span>
+            <span class="badge">JavaScript</span>
+          </div>
+          <div class="project-actions">
+            <a class="btn btn-primary" href="https://weather-dkb2birs6-pavan-kumar-gupta-s-projects.vercel.app/" target="_blank"><span class="icon">🔗</span> Live Demo</a>
+            <a class="icon-btn github" href="https://github.com/Pavangupta05/weather-app" target="_blank" aria-label="GitHub Repository">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path fill="currentColor"
+                  d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.35-1.76-1.35-1.76-1.1-.75.08-.74.08-.74 1.21.09 1.84 1.24 1.84 1.24 1.08 1.84 2.83 1.31 3.52 1 .11-.79.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .5z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      
+<div class="project-card scroll-reveal">
+        <img src="./Screenshot 2025-08-29 163807.png" alt="Project 1">
+        <div class="project-info">
+          <h3> Travel Destination Website</h3>
+          <p>• Designed and developed a fully responsive travel destination site with login & signup functionality,
+            showcasing 50+ locations with dynamic search and filter features.</p>
+          <p>• Integrated image galleries, reviews, and booking links, increasing user engagement and boosting session
+            duration by 30%</p>
+          <div class="badge-list">
+            <span class="badge">HTML</span>
+            <span class="badge">CSS</span>
+            <span class="badge">React.js</span>
+            <span class="badge">Node.js</span>
+            <span class="badge">Express.js</span>
+            <span class="badge">Mongo DB</span>
+          </div>
+          <div class="project-actions">
+            <a class="btn btn-primary" href="travel-agency-destination-cmi9-ngdvjv6sb.vercel.app" target="_blank"><span class="icon">🔗</span>Live Demo</a>
+            <a class="icon-btn github" href="https://github.com/Pavangupta05/Travel-agency-Destination" target="_blank" aria-label="GitHub Repository">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path fill="currentColor"
+                  d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.35-1.76-1.35-1.76-1.1-.75.08-.74.08-.74 1.21.09 1.84 1.24 1.84 1.24 1.08 1.84 2.83 1.31 3.52 1 .11-.79.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .5z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="education" class="education">
+    <h2 class="section-title">Education</h2>
+
+    <div class="education-container">
+      <div class="education-card scroll-reveal">
+        <h3>Bachelor of Technology (B.Tech)</h3>
+        <p><strong>Computer Science & Engineering</strong></p>
+        <p>Jaipur Engineering college And Research Center , Jaipur</p>
+        <p>2023 – 2027</p>
+      </div>
+
+      <div class="education-card scroll-reveal">
+        <h3>Class XII, RBSE</h3>
+        <p><strong>Science - PCM</strong></p>
+        <p>Vivekanand Sanskar Senior Secondary School, Gangapur City , Rajasthan</p>
+        <p>2021 – 2022</p>
+      </div>
+
+      <div class="education-card scroll-reveal">
+        <h3>Class X, RBSE</h3>
+        <p>Vivekanand Sanskar Senior Secondary School, Gangapur City , Rajasthan</p>
+        <p>2019 – 2020</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hobbies Section -->
+  <section id="hobbies" class="section">
+    <h2 class="section-title">Hobbies</h2>
+    <div class="hobbies-container">
+      <div class="hobby-card scroll-reveal">
+        <div class="icon">💻</div>
+        <p>Coding</p>
+      </div>
+      <div class="hobby-card scroll-reveal">
+        <div class="icon">🎨</div>
+        <p>Designing</p>
+      </div>
+      <div class="hobby-card scroll-reveal">
+        <div class="icon">✈️</div>
+        <p>Traveling</p>
+      </div>
+      <div class="hobby-card scroll-reveal">
+        <div class="icon">🎵</div>
+        <p>Music</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <div class="get-in-touch">
+      <div class="touch-item">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path fill="currentColor"
+            d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
+        </svg>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=pavangupta150605@gmail.com"
+          target="_blank">pavangupta150606@gmail.com</a>
+      </div>
+      <div class="touch-item">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path fill="currentColor"
+            d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8zm0 10.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" />
+        </svg>
+        <span>Jaipur, Rajasthan, India</span>
+      </div>
+      <div class="touch-item">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path fill="currentColor"
+            d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.1.37 2.29.57 3.58.57a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1C10.85 22 2 13.15 2 2a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.29.2 2.48.57 3.58a1 1 0 0 1-.24 1.01l-2.21 2.2z" />
+        </svg>
+        <span>+91 8005872338 (Available for Freelance Projects & Internship Opportunities)</span>
+      </div>
+    </div>
+    <form class="contact-form" action="https://formsubmit.co/pavangupta150605@gmail.com" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Pavan Kumar Gupta. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="https://github.com/Pavangupta05" target="_blank" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path fill="currentColor"
+            d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.35-1.76-1.35-1.76-1.1-.75.08-.74.08-.74 1.21.09 1.84 1.24 1.84 1.24 1.08 1.84 2.83 1.31 3.52 1 .11-.79.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .5z" />
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/in/pavan-kumar-gupta-837089290/" target="_blank" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path fill="currentColor"
+            d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.67 4.8 6.14V23h-4v-5.8c0-1.38-.02-3.16-1.93-3.16-1.94 0-2.24 1.51-2.24 3.06V23h-4V8.5z" />
+        </svg>
+      </a>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=pavangupta150605@gmail.com" target="_blank"
+        ,aria-label="Email">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path fill="currentColor"
+            d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
+        </svg>
+      </a>
+      <a href="https://wa.me/+918005872338?text=Hi,%20I%20came across%20your%20portfolio%20and%20would like%20to%20discuss%20a%20freelance%20or%20internship%20opportunity."
+        target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 32 32" width="18" height="18" aria-hidden="true">
+          <path fill="currentColor"
+            d="M16 .6C7.4.6.4 7.6.4 16.2c0 2.8.8 5.4 2.2 7.6L0 31.6l8-2.5c2.2 1.2 4.8 1.9 7.5 1.9 8.6 0 15.6-7 15.6-15.6S24.6.6 16 .6zm0 28.4c-2.4 0-4.6-.6-6.6-1.8l-.5-.3-4.7 1.5 1.5-4.6-.3-.5c-1.3-2-2-4.3-2-6.7 0-7 5.7-12.6 12.6-12.6 7 0 12.6 5.7 12.6 12.6S23 29 16 29zm6.8-9c-.4-.2-2.4-1.2-2.7-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.2 1.5-.2.2-.5.3-.9.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.5-.6.2-.2.1-.4 0-.6-.1-.2-.9-2.1-1.3-2.9-.3-.8-.7-.7-.9-.7-.2 0-.4 0-.6 0s-.6.1-.9.4c-.3.3-1.2 1.1-1.2 2.7s1.2 3.1 1.4 3.3c.2.2 2.4 3.6 5.8 5 .8.3 1.4.5 1.9.6.8.3 1.5.3 2.1.2.7-.1 2.4-1 2.8-2s.4-1.9.3-2c-.1-.1-.3-.2-.7-.4z" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <button id="scrollTopBtn" title="Go to top">▲</button>
+
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="../Portfolio_orig/script.js"></script>
+
+</body>
+
+</html>
