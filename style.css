@@ -1151,3 +1151,232 @@ body {
 .skill-card p {
   color: #d4d8e4;
 }
+
+
+
+
+/* ------------------- RESPONSIVE OVERRIDES (paste at end) ------------------- */
+
+/* General smaller base font scaling for small screens */
+@media (max-width: 1200px) {
+  html { font-size: 15.5px; }
+}
+
+/* Large tablets / small laptops */
+@media (max-width: 992px) {
+  html { font-size: 15px; }
+
+  /* Sections padding reduced so content doesn't feel cramped */
+  .section { padding: 80px 18px; }
+
+  /* About layout stacks */
+  .about-container {
+    gap: 1.25rem;
+    max-width: 960px;
+    padding: 0 12px;
+  }
+
+  .about-img { flex: 0 0 200px; }
+  .about-img img { width: 200px; height: 200px; }
+
+  .about-text { flex: 1 1 auto; font-size: 0.98rem; }
+
+  /* Projects grid tighter gap */
+  .project-grid { gap: 28px; max-width: 980px; padding: 0 12px; }
+
+  /* make skill cards fit better */
+  .skills-container { max-width: 980px; gap: 20px; }
+}
+
+/* Medium tablets / landscape phones */
+@media (max-width: 820px) {
+  html { font-size: 14.5px; }
+
+  .navbar { padding: 0 1.25rem; height: 60px; }
+
+  /* Nav links become compact, allow hamburger */
+  .nav-links { gap: 1rem; }
+
+  .typing-title { font-size: clamp(22px, 6.5vw, 44px); }
+
+  /* Reduce big decorative orb to avoid overflow */
+  #home .home-content::before {
+    width: 320px;
+    height: 320px;
+    right: -40px;
+    top: -10px;
+  }
+
+  /* Home hero and CTA stack better */
+  .typing-hero { padding: 24px 12px; min-height: 36vh; }
+  .home-subtitle { max-width: 520px; margin: 0 auto; }
+
+  /* Project images slightly smaller */
+  .project-card img { height: 200px; }
+}
+
+/* Standard mobile breakpoint */
+@media (max-width: 768px) {
+  html { font-size: 14px; }
+
+  /* Navbar: show hamburger already handled; keep padding reduced */
+  .navbar { padding: 0 1rem; height: 56px; }
+
+  /* Make nav-links absolute mobile menu full width option if desired */
+  .nav-links {
+    right: 8px;
+    left: 8px;
+    top: 56px;
+    border-radius: 12px;
+    padding: 10px;
+    background: rgba(12,16,28,0.95);
+    display: flex;
+    align-items: flex-start;
+  }
+
+  /* Force nav items to full width inside drop-down (if used) */
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 8px 6px;
+  }
+
+  .logo { font-size: 1.25rem; }
+
+  /* Home CTA stacks vertically */
+  .home-cta { flex-direction: column; gap: 12px; width: 100%; }
+  .home-cta .btn { width: 100%; max-width: 100%; }
+
+  /* Section spacing smaller on mobile */
+  .section { padding: 60px 16px; }
+
+  /* About/grid stack: full column flow */
+  .about-container { flex-direction: column; align-items: center; text-align: center; gap: 1rem; }
+  .about-text { text-align: center; padding: 0 8px; }
+  .about-text h2 { font-size: 1.6rem; }
+
+  /* Make skill/project/grid single column friendly */
+  .skills-container { grid-template-columns: repeat(1, 1fr); gap: 18px; max-width: 520px; }
+  .project-grid { grid-template-columns: 1fr; gap: 20px; padding: 0; max-width: 520px; margin: 0 auto; }
+
+  .project-card { flex-direction: column; }
+  .project-card img { width: 100%; height: 160px; }
+
+  /* Education, experience, certificates single column */
+  .education-container,
+  .experience-container,
+  .certificates-container,
+  .hobbies-container {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 0 4px;
+  }
+
+  .education { padding: 60px 16px; }
+  .contact { padding: 60px 16px; }
+
+  /* Contact form full width */
+  .contact-form { padding: 0 8px; }
+  .contact-form input,
+  .contact-form textarea { width: 100%; font-size: 15px; }
+
+  /* Touch controls - reduce heavy shadows to keep UI snappy */
+  .project-card, .skill-card, .education-card { box-shadow: 0 4px 10px rgba(0,0,0,0.28); }
+}
+
+/* Small phones */
+@media (max-width: 640px) {
+  html { font-size: 13.5px; }
+
+  /* Further reduce big section paddings */
+  .section { padding: 50px 14px; }
+
+  .typing-title { font-size: clamp(20px, 6.5vw, 36px); }
+  .typing-hero { min-height: 28vh; }
+
+  .about-img img { width: 180px; height: 180px; }
+  .about-text { font-size: 0.95rem; }
+
+  /* Reduce project image height to avoid long scrolls */
+  .project-card img { height: 140px; }
+
+  .btn, .btn-hire, .btn-resume { padding: 10px 12px; font-size: 14px; }
+
+  .badge { font-size: 10px; padding: 3px 8px; }
+
+  /* Get-in-touch becomes single column friendly */
+  .get-in-touch { grid-template-columns: 1fr; gap: 12px; padding: 0 6px; }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  html { font-size: 13px; }
+
+  .navbar { height: 52px; padding: 0 0.75rem; }
+  .logo { font-size: 1.1rem; }
+
+  .typing-title { font-size: clamp(18px, 7vw, 30px); }
+  .home-subtitle { font-size: 0.95rem; padding: 0 6px; }
+
+  .about-img img { width: 150px; height: 150px; }
+  .project-card img { height: 120px; }
+
+  .section-title { font-size: 1.6rem; margin-bottom: 22px; }
+
+  /* Reduce card hover transforms on small screens (also for performance) */
+  .skill-card:hover,
+  .project-card:hover,
+  .education-card:hover,
+  .experience-card:hover,
+  .certificate-card:hover,
+  .hobby-card:hover {
+    transform: none;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.28);
+  }
+}
+
+/* Narrow / very narrow devices */
+@media (max-width: 400px) {
+  html { font-size: 12.5px; }
+
+  .typing-title { font-size: clamp(16px, 8vw, 26px); }
+  .home-subtitle { font-size: 0.9rem; line-height: 1.4; }
+
+  .about-img img { width: 130px; height: 130px; }
+  .project-card img { height: 110px; }
+
+  .footer .social-icons a { width: 36px; height: 36px; }
+  .logo { font-size: 1rem; }
+}
+
+/* Pointer & hover optimizations for touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .skill-card:hover,
+  .project-card:hover,
+  .education-card:hover,
+  .experience-card:hover,
+  .certificate-card:hover,
+  .hobby-card:hover,
+  .touch-item:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Remove heavy text-shadow or overly large glows on touch devices */
+  .btn-primary, .btn-hire, .btn-resume { box-shadow: 0 4px 12px rgba(0,0,0,0.18); }
+}
+
+/* Accessibility: increase click target on small screens */
+@media (max-width: 640px) {
+  .nav-links a, .btn, .icon-btn, .project-actions .icon-btn.github {
+    min-height: 44px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+
+/* Fix potential horizontal overflow from large absolute elements */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
