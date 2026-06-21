@@ -6,6 +6,7 @@ const ASSETS_TO_CACHE = [
   '/script.js',
   '/manifest.json',
   '/ProfilePhoto.png',
+  '/app-icon.png',
   '/JAVA.jpg',
   '/Python.jpg',
   '/Upflairs.jpg',

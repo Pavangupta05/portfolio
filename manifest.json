@@ -9,13 +9,13 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "./ProfilePhoto.png",
+      "src": "./app-icon.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "./ProfilePhoto.png",
+      "src": "./app-icon.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
@@ -23,7 +23,7 @@
   ],
   "screenshots": [
     {
-      "src": "./ProfilePhoto.png",
+      "src": "./app-icon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
