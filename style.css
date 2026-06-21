@@ -2913,7 +2913,7 @@ body.loading {
       0 8px 32px 0 rgba(0, 0, 0, 0.45),
       inset 0 1px 0 rgba(255, 255, 255, 0.16),
       inset 0 -1px 0 rgba(0, 0, 0, 0.2) !important;
-    top: 12px;
+    top: calc(max(12px, env(safe-area-inset-top) + 10px)) !important;
     padding: 10px 14px;
     border-radius: 20px;
     z-index: 10006 !important;
@@ -3483,7 +3483,7 @@ body.loading {
 .mobile-top-dock {
   display: none;
   position: fixed;
-  top: 20px;
+  top: calc(max(15px, env(safe-area-inset-top) + 10px));
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 40px);
