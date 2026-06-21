@@ -744,8 +744,9 @@ window.closeProjectModal = function() {
 // ============ COPY EMAIL (global) ============
 function copyEmail() {
   const email = 'pavangupta150605@gmail.com';
-  navigator.clipboard.writeText(email).then(() => {
-    const btn = document.getElementById('copy-email-btn');
+  const btn = document.getElementById('copy-email-btn');
+
+  const showSuccessFeedback = () => {
     if (!btn) return;
     btn.innerHTML = '<i class="fa-solid fa-check"></i>';
     btn.style.background = 'rgba(0,230,118,0.15)';
@@ -757,13 +758,31 @@ function copyEmail() {
       btn.style.borderColor = 'rgba(0,230,255,0.3)';
       btn.style.color = '#00e6ff';
     }, 2500);
-  }).catch(() => {
-    // Fallback for older browsers
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(email).then(() => {
+      showSuccessFeedback();
+    }).catch(() => {
+      fallbackCopy();
+    });
+  } else {
+    fallbackCopy();
+  }
+
+  function fallbackCopy() {
     const ta = document.createElement('textarea');
     ta.value = email;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
     document.body.appendChild(ta);
     ta.select();
-    document.execCommand('copy');
+    try {
+      document.execCommand('copy');
+      showSuccessFeedback();
+    } catch (err) {
+      console.error('Fallback copy failed', err);
+    }
     document.body.removeChild(ta);
-  });
+  }
 }
