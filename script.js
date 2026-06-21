@@ -221,18 +221,26 @@ window.addEventListener("DOMContentLoaded", () => {
   // ---------------- PARTICLE BACKGROUND (Optimized) ----------------
   const canvas = document.getElementById("bg-canvas");
   if (canvas) {
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d", { alpha: true });
     let particles = [];
-    const particleCount = window.innerWidth < 768 ? 40 : 80;
-    const connectionDistance = 140;
-    const mouseRadius = 140;
+    // Reduce particle count for better performance
+    const particleCount = window.innerWidth < 768 ? 25 : 50;
+    const connectionDistance = 120;
+    const mouseRadius = 120;
 
     let mouse = { x: null, y: null };
     let scrollYOffset = 0;
+    let animationId = null;
+    let frameCount = 0; // For throttling expensive operations
 
+    // Throttled mousemove
+    let mouseThrottle = false;
     window.addEventListener("mousemove", (e) => {
+      if (mouseThrottle) return;
+      mouseThrottle = true;
       mouse.x = e.x;
       mouse.y = e.y;
+      setTimeout(() => { mouseThrottle = false; }, 16);
     });
 
     window.addEventListener("mouseout", () => {
@@ -240,13 +248,29 @@ window.addEventListener("DOMContentLoaded", () => {
       mouse.y = null;
     });
 
+    // Throttled scroll
+    let scrollThrottle = false;
     const progressBar = document.getElementById("scroll-progress");
     window.addEventListener("scroll", () => {
-      scrollYOffset = window.scrollY;
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      if (progressBar) progressBar.style.width = scrolled + "%";
+      if (scrollThrottle) return;
+      scrollThrottle = true;
+      requestAnimationFrame(() => {
+        scrollYOffset = window.scrollY;
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        if (progressBar) progressBar.style.width = scrolled + "%";
+        scrollThrottle = false;
+      });
+    });
+
+    // Pause animation when tab is hidden (saves CPU/battery)
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        if (animationId) cancelAnimationFrame(animationId);
+      } else {
+        animate();
+      }
     });
 
     class Particle {
@@ -256,9 +280,9 @@ window.addEventListener("DOMContentLoaded", () => {
       reset() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.4;
-        this.vy = (Math.random() - 0.5) * 0.4;
-        this.size = Math.random() * 2 + 1;
+        this.vx = (Math.random() - 0.5) * 0.3;
+        this.vy = (Math.random() - 0.5) * 0.3;
+        this.size = Math.random() * 1.5 + 0.8;
       }
       update() {
         this.x += this.vx;
@@ -271,17 +295,18 @@ window.addEventListener("DOMContentLoaded", () => {
         if (mouse.x != null && mouse.y != null) {
           let dx = mouse.x - this.x;
           let dy = mouse.y - (this.y + parallaxY);
-          let distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < mouseRadius) {
+          let distSq = dx * dx + dy * dy;
+          if (distSq < mouseRadius * mouseRadius) {
+            let distance = Math.sqrt(distSq);
             let force = (mouseRadius - distance) / mouseRadius;
-            this.x -= (dx / distance) * force * 1.5;
-            this.y -= (dy / distance) * force * 1.5;
+            this.x -= (dx / distance) * force * 1.2;
+            this.y -= (dy / distance) * force * 1.2;
           }
         }
       }
       draw() {
         const parallaxY = scrollYOffset * 0.08;
-        ctx.fillStyle = "rgba(0, 191, 255, 0.35)";
+        ctx.fillStyle = "rgba(0, 191, 255, 0.3)";
         ctx.beginPath();
         ctx.arc(this.x, this.y + parallaxY, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -297,14 +322,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
     function drawLines() {
       const pY = scrollYOffset * 0.08;
-      ctx.lineWidth = 0.8;
+      ctx.lineWidth = 0.6;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           let dx = particles[i].x - particles[j].x;
           let dy = particles[i].y - particles[j].y;
-          let distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < connectionDistance) {
-            let opacity = (1 - distance / connectionDistance) * 0.15;
+          // Use squared distance to avoid sqrt when possible
+          let distSq = dx * dx + dy * dy;
+          if (distSq < connectionDistance * connectionDistance) {
+            let opacity = (1 - Math.sqrt(distSq) / connectionDistance) * 0.12;
             ctx.strokeStyle = `rgba(0, 191, 255, ${opacity})`;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y + pY);
@@ -318,24 +344,33 @@ window.addEventListener("DOMContentLoaded", () => {
     const bgTexts = document.querySelectorAll(".bg-scroll-text");
 
     function animate() {
+      frameCount++;
       // 1. Clear Canvas
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       // 2. Update/Draw Particles
       particles.forEach(p => { p.update(); p.draw(); });
-      drawLines();
 
-      // 3. Parallax Background Text
-      bgTexts.forEach((text, index) => {
-        const speed = (index + 1) * 0.12;
-        const currentTransform = text.style.transform.includes('rotate') ? 'rotate(90deg)' : '';
-        text.style.transform = `translateY(${scrollYOffset * speed}px) ${currentTransform}`;
-      });
+      // 3. Draw lines every other frame (saves ~30% CPU)
+      if (frameCount % 2 === 0) drawLines();
 
-      requestAnimationFrame(animate);
+      // 4. Parallax Background Text (only every 3 frames)
+      if (frameCount % 3 === 0) {
+        bgTexts.forEach((text, index) => {
+          const speed = (index + 1) * 0.12;
+          const currentTransform = text.style.transform.includes('rotate') ? 'rotate(90deg)' : '';
+          text.style.transform = `translateY(${scrollYOffset * speed}px) ${currentTransform}`;
+        });
+      }
+
+      animationId = requestAnimationFrame(animate);
     }
 
-    window.addEventListener("resize", init);
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(init, 200);
+    });
     init();
     animate();
 
