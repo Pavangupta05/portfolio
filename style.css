@@ -4340,3 +4340,5 @@ body.loading {
   color: #ccc;
   line-height: 1.6;
 }
+
+.cert-link:hover { color: #0a84ff !important; }
