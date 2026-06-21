@@ -151,23 +151,16 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // On mobile cap canvas at 30fps — imperceptible difference, halves GPU calls
-    const fpsInterval = isMobile ? 1000 / 30 : 1000 / 60;
-    let lastFrameTime = 0;
-
-    function animate(timestamp) {
-      animationId = requestAnimationFrame(animate);
-      const elapsed = timestamp - lastFrameTime;
-      if (elapsed < fpsInterval) return; // skip frames to hit target fps
-      lastFrameTime = timestamp - (elapsed % fpsInterval);
-
+    function animate() {
       frameCount++;
       const pY = scrollYOffset * 0.08;
+      // Must fill bg each frame because alpha:false skips transparent clear
       ctx.fillStyle = "#000000";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "rgba(0,191,255,0.3)";
       particles.forEach(p => { p.update(); p.draw(pY); });
-      if (frameCount % 2 === 0) drawLines(pY);
+      if (frameCount % 2 === 0) drawLines(pY); // lines every other frame
+      animationId = requestAnimationFrame(animate);
     }
 
     let resizeTimer;
