@@ -426,15 +426,18 @@ body {
 .typing-hero {
   display: flex;
   align-items: center;
+display: flex;
   justify-content: center;
   min-height: 60vh;
   text-align: center;
 }
 
 .typing-title {
-  font-size: clamp(28px, 6vw, 56px);
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  font-size: clamp(40px, 8vw, 84px) !important;
+  font-weight: 900 !important;
+  letter-spacing: -1px;
+  color: #e2e8f0;
+  line-height: 1.1;
 }
 
 #typingText {
@@ -2199,14 +2202,14 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
-
 .hero-greeting {
-  font-size: 18px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.65);
-  letter-spacing: 1px;
-  margin-bottom: 8px;
+  font-size: clamp(32px, 5vw, 56px) !important;
+  font-weight: 800 !important;
+  color: #8b95a5 !important;
+  letter-spacing: -0.5px;
+  margin-bottom: -5px;
   font-family: 'Poppins', sans-serif;
+  line-height: 1.1;
 }
 
 .hero-text-center .typing-title {
