@@ -4385,3 +4385,64 @@ body.loading {
 .badge-text { color: #00e676; font-weight: 600; letter-spacing: 0.02em; }
 .badge-divider { color: rgba(255,255,255,0.2); }
 .badge-time { color: #a0a5cc; font-size: 0.78rem; font-family: 'Courier New', monospace; }
+
+/* =====================================================
+   PERFORMANCE LAYER — GPU promotion + paint containment
+   ===================================================== */
+
+/* Promote animated blobs to own GPU compositor layer */
+.ambient-blob {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Promote the fixed navbars */
+.mobile-top-dock,
+.desktop-navbar {
+  will-change: transform;
+}
+
+/* Own stacking context for cards — prevents sibling repaints on hover */
+.skill-card,
+.project-card,
+.blog-card,
+.certificate-card {
+  transform: translateZ(0);
+}
+
+/* Scroll progress updates every frame — promote it */
+#scroll-progress {
+  will-change: width;
+}
+
+/* Off-screen sections: skip layout+paint until near viewport.
+   This is the single biggest scroll-smoothness win. */
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 600px;
+}
+/* Never skip the hero — it is always visible */
+section#home {
+  content-visibility: visible;
+  contain-intrinsic-size: none;
+}
+
+/* Halve blur radius on mobile GPUs (phones can't blur 600px elements at 90px easily) */
+@media (max-width: 768px) {
+  .ambient-blob {
+    filter: blur(55px) !important;
+    -webkit-filter: blur(55px) !important;
+  }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ambient-blob,
+  .available-badge,
+  .badge-dot,
+  .caret {
+    animation: none !important;
+  }
+}
+
